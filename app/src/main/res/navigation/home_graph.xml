@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/home_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/home_graph"
+  app:startDestination="@id/VCNewsListFragment">
 
+  <fragment
+    android:id="@+id/VCNewsListFragment"
+    android:name="com.yakubishka.vc.activities.fragments.news.VCNewsListFragment"
+    android:label="VCNewsListFragment" />
 </navigation>

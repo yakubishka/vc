@@ -7,4 +7,12 @@ abstract class BaseFragmentPresenter<V: BaseViewContract>: Presenter<V> {
 
   protected val subscriptions = CompositeDisposable()
 
+  override fun onStop() {
+    subscriptions.clear()
+  }
+
+  override fun onDestroy() {
+    subscriptions.dispose()
+  }
+
 }

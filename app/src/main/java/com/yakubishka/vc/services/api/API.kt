@@ -1,13 +1,16 @@
-package com.yakubishka.vc.services
+package com.yakubishka.vc.services.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.simpleframework.xml.convert.AnnotationStrategy
+import org.simpleframework.xml.core.Persister
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 
 object API {
 
-  private const val BASE_URL = "https://vc.ru/rss/all"
+  private const val BASE_URL = "https://vc.ru/"
 
   private val retrofit: Retrofit
 
@@ -21,12 +24,14 @@ object API {
       .build()
 
     retrofit = Retrofit.Builder()
+      .client(client)
       .baseUrl(BASE_URL)
+      .addConverterFactory(SimpleXmlConverterFactory.create(Persister(AnnotationStrategy())))
       .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
       .build()
   }
 
-  //TODO rss service
 
+  fun getRssService(): RssService = retrofit.create(RssService::class.java)
 
 }

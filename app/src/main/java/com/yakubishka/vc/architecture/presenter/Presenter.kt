@@ -5,12 +5,12 @@ import com.yakubishka.vc.architecture.view.BaseViewContract
 
 interface Presenter<V: BaseViewContract> {
 
-  fun onCreate(savedInstanceState: Bundle?)
+  fun onCreate(savedInstanceState: Bundle?) = Unit
 
-  fun onViewAttached(view: V)
+  fun onViewAttached(view: V) = Unit
 
-  fun onStop()
+  fun onStop() = Unit
 
-  fun onDestroy()
+  fun onDestroy() = Unit
 
 }

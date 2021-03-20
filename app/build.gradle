@@ -9,13 +9,18 @@ android {
   compileSdkVersion 29
   buildToolsVersion "29.0.3"
 
+  buildFeatures {
+    dataBinding true
+    viewBinding true
+  }
+
   defaultConfig {
     applicationId "com.yakubishka.vc"
     minSdkVersion 21
     targetSdkVersion 29
     versionCode 1
     versionName "1.0"
-
+    multiDexEnabled true
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
@@ -23,13 +28,11 @@ android {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-      multiDexEnabled true
     }
   }
 
-  buildFeatures {
-    dataBinding true
-    viewBinding true
+  dexOptions {
+    javaMaxHeapSize "2g"
   }
 
   compileOptions {
@@ -45,12 +48,12 @@ android {
 
 ext {
   androidLegacySupportVersion = "1.0.0"
-  androidAppCompatVersion = '1.2.0'
+  androidAppCompatVersion = "1.2.0"
   androidMaterialVersion = "1.3.0"
 
   rxJavaVersion = "2.2.19"
   rxAndroidVersion = "2.1.1"
-  retrofitVersion = '2.7.1'
+  retrofitVersion = "2.7.1"
 
   roomVersion = "2.2.6"
   okhttpVersion = "4.9.0"
@@ -59,19 +62,24 @@ ext {
 }
 
 dependencies {
-  implementation 'androidx.multidex:multidex:2.0.1'
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+
+  implementation "androidx.multidex:multidex:2.0.1"
   implementation 'androidx.core:core-ktx:1.3.2'
 
   implementation 'androidx.cardview:cardview:1.0.0'
   implementation 'androidx.recyclerview:recyclerview:1.1.0'
-  implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+  implementation "androidx.constraintlayout:constraintlayout:2.0.4"
   implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+  implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+  implementation "androidx.preference:preference-ktx:1.1.1"
 
   implementation "androidx.appcompat:appcompat:$androidAppCompatVersion"
   implementation "com.google.android.material:material:$androidMaterialVersion"
 
   implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
   implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+  implementation "com.squareup.retrofit2:converter-simplexml:2.6.1"
 
   implementation "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
   implementation "com.squareup.okhttp3:okhttp:${okhttpVersion}"
@@ -83,10 +91,9 @@ dependencies {
   implementation "androidx.navigation:navigation-ui-ktx:${nav_version}"
   implementation "androidx.navigation:navigation-dynamic-features-fragment:${nav_version}"
   implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+  implementation "androidx.navigation:navigation-compose:1.0.0-alpha09"
 
-  implementation "androidx.room:room-runtime:$roomVersion"
-  implementation "androidx.room:room-rxjava2:$roomVersion"
-  kapt "androidx.room:room-compiler:$roomVersion"
+  implementation 'com.squareup.picasso:picasso:2.71828'
 
   testImplementation 'junit:junit:4.13.2'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2'
