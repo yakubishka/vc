@@ -87,12 +87,6 @@ dependencies {
   implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
   implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
 
-  implementation "androidx.navigation:navigation-fragment-ktx:${nav_version}"
-  implementation "androidx.navigation:navigation-ui-ktx:${nav_version}"
-  implementation "androidx.navigation:navigation-dynamic-features-fragment:${nav_version}"
-  implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
-  implementation "androidx.navigation:navigation-compose:1.0.0-alpha09"
-
   implementation 'com.squareup.picasso:picasso:2.71828'
 
   testImplementation 'junit:junit:4.13.2'

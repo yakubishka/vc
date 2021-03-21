@@ -1,6 +1,8 @@
 <resources>
   <string name="app_name">vc</string>
 
+  <string name="something_went_wrong">Что-то пошло не так, попробуйте позже</string>
+
   <!-- VC NEWS LIST FRAGMENT -->
   <string name="description">Описание</string>
   <string name="author">Автор</string>

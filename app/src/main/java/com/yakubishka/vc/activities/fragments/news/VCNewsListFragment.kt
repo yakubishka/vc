@@ -1,10 +1,9 @@
 package com.yakubishka.vc.activities.fragments.news
 
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.yakubishka.vc.R
+import com.yakubishka.vc.activities.fragments.details.DetailsFragment
 import com.yakubishka.vc.activities.fragments.news.model.RssItem
 import com.yakubishka.vc.architecture.view.BaseFragment
 import com.yakubishka.vc.databinding.FragmentVcNewsBinding
@@ -30,7 +29,7 @@ class VCNewsListFragment:
   }
 
   private fun openDetailsFragment(item: RssItem) {
-    findNavController().navigate(R.id.action_VCNewsListFragment_to_detailsFragment)
+    getDestinationManageable().pushFragment(DetailsFragment.getInstance(item))
   }
 
   override fun createPresenter(): VCNewsListPresenter = VCNewsListPresenter()

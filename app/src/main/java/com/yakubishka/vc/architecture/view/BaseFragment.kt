@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.yakubishka.vc.activities.DestinationManageable
 import com.yakubishka.vc.architecture.presenter.Presenter
 import io.reactivex.disposables.CompositeDisposable
 
@@ -38,10 +39,11 @@ abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presente
   }
 
   override fun onDestroy() {
-
     super.onDestroy()
     presenter.onDestroy()
   }
+
+  fun getDestinationManageable(): DestinationManageable = (activity) as DestinationManageable
 
   abstract fun getLayoutId(): Int
 

@@ -1,13 +1,8 @@
 package com.yakubishka.vc.activities.fragments.details
 
 import com.yakubishka.vc.architecture.presenter.BaseFragmentPresenter
+import com.yakubishka.vc.architecture.view.BaseViewContract
 
-class DetailsPresenter: BaseFragmentPresenter<DetailsViewContract>() {
-
-  lateinit var viewContract: DetailsViewContract
-
-  override fun onViewAttached(view: DetailsViewContract) {
-    viewContract = view
-  }
-
+class DetailsPresenter: BaseFragmentPresenter<BaseViewContract>() {
+  override fun onViewAttached(view: BaseViewContract) = Unit
 }
