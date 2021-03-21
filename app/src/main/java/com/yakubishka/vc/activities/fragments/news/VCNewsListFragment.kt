@@ -1,5 +1,6 @@
 package com.yakubishka.vc.activities.fragments.news
 
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -13,7 +14,7 @@ class VCNewsListFragment:
 
   lateinit var binding: FragmentVcNewsBinding
 
-  private val listAdapter = NewsListAdapter(arrayListOf())
+  private val listAdapter = NewsListAdapter(arrayListOf(), ::openDetailsFragment)
 
   override fun onBindingCreated(binding: FragmentVcNewsBinding) {
     this.binding = binding
@@ -26,6 +27,10 @@ class VCNewsListFragment:
     binding.swipeRefreshLayout.setOnRefreshListener {
       presenter.fullListReload()
     }
+  }
+
+  private fun openDetailsFragment(item: RssItem) {
+    findNavController().navigate(R.id.action_VCNewsListFragment_to_detailsFragment)
   }
 
   override fun createPresenter(): VCNewsListPresenter = VCNewsListPresenter()

@@ -1,6 +1,7 @@
 package com.yakubishka.vc.architecture.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presente
   }
 
   override fun onDestroy() {
+
     super.onDestroy()
     presenter.onDestroy()
   }
