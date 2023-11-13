@@ -43,19 +43,15 @@ abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presente
     presenter.onDestroy()
   }
 
+
+
   fun getDestinationManageable(): DestinationManageable = (activity) as DestinationManageable
 
   abstract fun getLayoutId(): Int
 
   abstract fun onBindingCreated(binding: T)
 
-
-
   abstract fun createPresenter(): P
 
-
-
   abstract fun createViewContract(): V
-
-
 }
