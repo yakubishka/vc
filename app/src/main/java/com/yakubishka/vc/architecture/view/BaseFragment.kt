@@ -10,15 +10,19 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.yakubishka.vc.activities.DestinationManageable
 import com.yakubishka.vc.architecture.presenter.Presenter
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.CompositeDisposable.*
 
 abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presenter<V>>: Fragment() {
 
   protected val presenter: P by lazy { return@lazy createPresenter() }
   protected val viewContract: V by lazy { return@lazy createViewContract() }
 
+
+
   override fun onCreate(savedInstanceState: Bundle?) {
+
     super.onCreate(savedInstanceState)
+
     presenter.onCreate(savedInstanceState)
   }
 
