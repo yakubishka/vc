@@ -44,7 +44,6 @@ abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presente
   }
 
 
-
   fun getDestinationManageable(): DestinationManageable = (activity) as DestinationManageable
 
   abstract fun getLayoutId(): Int
