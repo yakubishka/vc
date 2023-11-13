@@ -53,4 +53,6 @@ abstract class BaseFragment<T: ViewDataBinding, V: BaseViewContract, P: Presente
 
   abstract fun createViewContract(): V
 
+
+
 }
